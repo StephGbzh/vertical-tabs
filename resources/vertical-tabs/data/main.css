@@ -14,7 +14,7 @@
 
 #new-tab-button,
 .tabs-newtab-button
- {
+{
     /* Hide new-tab button */
     display: none !important;
     visibility: hidden !important;
@@ -22,8 +22,8 @@
 
 .tab-drop-indicator 
 {
-width: 250px !important;
-height: 11px !important;
-background-color: orange;
-list-style-image: none !important; }
-
+    width: 250px !important;
+    height: 11px !important;
+    background-color: orange;
+    list-style-image: none !important;
+}

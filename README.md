@@ -6,6 +6,17 @@ It is __NOT__ this add-on: [Vertical Tabs](https://addons.mozilla.org/en-Us/fire
 I developed this because [Widefox](https://sites.google.com/site/jrweare/browser2.0) was abandoned around Firefox 3.  
 [Tab Mix Plus](https://addons.mozilla.org/en-US/firefox/addon/tab-mix-plus/) developers never added this functionality either, see http://tmp.garyr.net/forum/viewtopic.php?t=17110
 
+###version 0.6
+
+- lib/chrome-mod.js
+- lib/main.js
+- data/main.css
+- data/browser.css
+- data/browser-mod.js
+
+Full screen: hide tab bar and window control buttons  
+Full screen: show tab bar when the mouse cursor touches the right side of screen
+
 ###version 0.5
 
 - lib/chrome-mod.js

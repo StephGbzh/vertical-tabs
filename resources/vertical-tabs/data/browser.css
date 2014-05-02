@@ -34,3 +34,18 @@
   -border-radius: 10px 8px 0 0;
   -moz-box-flex:0 !important;
 }
+
+/* Fullscreen : Hide tab bar */
+#main-window[sizemode="fullscreen"] #TabsToolbar {
+    width: 1px !important;
+}
+
+/* Fullscreen : Show tab bar when putting the mouse on the right side of screen */
+#main-window[sizemode="fullscreen"] #TabsToolbar:hover {
+    width: 250px !important;
+}
+
+/* Fullscreen : Hide the annoying window controls */
+#window-controls {
+    display: none !important;
+}

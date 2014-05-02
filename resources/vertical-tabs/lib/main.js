@@ -29,9 +29,9 @@ ChromeMod({
     });
   },
   onAttach: function(worker) {
-    /*worker.on("message", function (data) {
+    worker.on("message", function (data) {
 
-    });*/
+    });
     
     worker.postMessage({
       msg: "css",
