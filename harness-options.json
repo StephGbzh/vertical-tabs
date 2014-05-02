@@ -1266,8 +1266,8 @@
    "sectionName": "lib"
   },
   "vertical-tabs/lib/main.js": {
-   "docsSHA256": "30006603ced099f95d517174bfc7f81d8e70c93643553eb219dfd6c09c84fbb9",
-   "jsSHA256": "e9c427e13f01ad0240b4a64440d77c4acf26169efc6334cbe591de08baa31bd3",
+   "docsSHA256": "23ef72caa913b61c3a7ed57569de06ef5536f2bfe3f15dcec687b1cad142e4bd",
+   "jsSHA256": "e5dfe53bb8d3fcb7f25b5c64215b9badd6bd12ad9ad8db2fab504e46d9ee1c3d",
    "moduleName": "main",
    "packageName": "vertical-tabs",
    "requirements": {
@@ -1325,7 +1325,7 @@
    "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
    "main": "main",
    "name": "vertical-tabs",
-   "version": "0.4"
+   "version": "0.5"
   }
  },
  "name": "vertical-tabs",

@@ -1,19 +1,25 @@
+let aaaiw=this.innerWidth;
+let aaaow=this.outerWidth;
+
 var browser = document.getElementById("browser");
 var tabsToolbar = document.getElementById("TabsToolbar");
 browser.appendChild(tabsToolbar);
-tabBrowser = document.getElementById("content");
+var tabBrowser = document.getElementById("content");
 tabBrowser.mTabContainer.mTabstrip.setAttribute("orient", "vertical");
 
 let tabs = document.getElementById('tabbrowser-tabs');
 
 
+let bbbiw=this.innerWidth;
+let bbbow=this.outerWidth;
+
 // Change tabs orientation
-tabsToolbar.setAttribute("orient", "vertical");
+/*tabsToolbar.setAttribute("orient", "vertical");
 let orientBox = document.getAnonymousElementByAttribute(tabs, 'anonid', 'arrowscrollbox');
 if (orientBox)
   orientBox.setAttribute("orient","vertical");
 else
-  console.error("unable to found orientbox");
+  console.error("unable to found orientbox");*/
 
 
 // Overload XBL methods in order to make Drag'n Drop work:
@@ -193,6 +199,9 @@ tabs.addEventListener("dragover", function (event) {
     console.exception(e);
   }
 }, true);
+
+
+
 /*
 function dblClickEvent(event) {
         // When the tabbar has an unified appearance with the titlebar

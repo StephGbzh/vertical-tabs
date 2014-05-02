@@ -32,9 +32,11 @@ ChromeMod({
     /*worker.on("message", function (data) {
 
     });*/
+    
     worker.postMessage({
       msg: "css",
       url: require("self").data.url('browser.css')
     });
+    
   }
 });
