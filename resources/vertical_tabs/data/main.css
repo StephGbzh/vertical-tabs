@@ -1,0 +1,21 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
+
+#alltabs-button
+{
+    display: none;
+}
+
+.tabbrowser-tab
+{
+    min-height: 26px;
+    max-height: 26px;
+    min-width: 250px !important;
+}
+
+#new-tab-button,
+.tabs-newtab-button
+ {
+    /* Hide new-tab button */
+    display: none !important;
+    visibility: hidden !important;
+}

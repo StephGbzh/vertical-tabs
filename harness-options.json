@@ -1,0 +1,449 @@
+{
+ "allTestModules": [],
+ "bootstrap": {
+  "classID": "{59abbccd-d4f2-4a4c-911a-307a70b8ea70}",
+  "contractID": "@mozilla.org/harness-service;1?id=jid1-eQhhqs0y1jmbIQ@jetpack"
+ },
+ "enable_e10s": false,
+ "jetpackID": "jid1-eQhhqs0y1jmbIQ@jetpack",
+ "loader": "api-utils/lib/cuddlefish.js",
+ "main": "main",
+ "mainPath": "vertical_tabs/lib/main.js",
+ "manifest": {
+  "api-utils/lib/api-utils.js": {
+   "docsSHA256": "fa352eb05c24310ca9deb2bb47b3b5e28d2c332a47c5e9c306d80dc82a6f3470",
+   "jsSHA256": "7a8561e45a0e24b4d5d8af84cd76a55b6c1af98862cf5274e43497e1de265b25",
+   "moduleName": "api-utils",
+   "packageName": "api-utils",
+   "requirements": {},
+   "sectionName": "lib"
+  },
+  "api-utils/lib/byte-streams.js": {
+   "docsSHA256": "6e5082ee5e082522084a571f94024458e8567d184aefd1ae799a64f7e849d247",
+   "jsSHA256": "ea2a3b4658cf794ea328bc10a3f5f5fcc183b44512b9b3bf6592afb22cca2ffd",
+   "moduleName": "byte-streams",
+   "packageName": "api-utils",
+   "requirements": {
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/channel.js": {
+   "docsSHA256": null,
+   "jsSHA256": "c0c8403f373171c042b1995667f2446b6d96ff1650aef881092f97ce981be4c2",
+   "moduleName": "channel",
+   "packageName": "api-utils",
+   "requirements": {
+    "@packaging": {
+     "path": "@packaging"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/cuddlefish.js": {
+   "docsSHA256": null,
+   "jsSHA256": "ca07931ff7f62ce759c986540e48b2a1cabe5f5995b74b8f7674d5a1d508ca22",
+   "moduleName": "cuddlefish",
+   "packageName": "api-utils",
+   "requirements": {
+    "@packaging": {
+     "path": "@packaging"
+    },
+    "api-utils/globals!": {
+     "path": "api-utils/lib/globals!.js"
+    },
+    "api-utils/process": {
+     "path": "api-utils/lib/process.js"
+    },
+    "api-utils/self!": {
+     "path": "api-utils/lib/self!.js"
+    },
+    "api-utils/system": {
+     "path": "api-utils/lib/system.js"
+    },
+    "api-utils/unload": {
+     "path": "api-utils/lib/unload.js"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/environment.js": {
+   "docsSHA256": "d7633990333fefceb8e406f9f3755befd8fcf47d126bd707d24e13c7300086d3",
+   "jsSHA256": "a6c412d51d2c0115f1895b7cad4d69530756cd9c6a985eb47dc7382a64e51801",
+   "moduleName": "environment",
+   "packageName": "api-utils",
+   "requirements": {
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/errors.js": {
+   "docsSHA256": "e917e2adc2c0c60aa0b0d434b46c681b3136e7dabc846cd9a2ffef725924a8ad",
+   "jsSHA256": "129b9521ab6f762e0309bed9fbdacaf9c33c0297ca54cb7158994a0d805b8373",
+   "moduleName": "errors",
+   "packageName": "api-utils",
+   "requirements": {},
+   "sectionName": "lib"
+  },
+  "api-utils/lib/events.js": {
+   "docsSHA256": "78eed06c263c7372d9a76ffee318ca9dcbb3c471ba830b6f7e39cdb4c099d7d2",
+   "jsSHA256": "7e17f78124280bcaa6a018bf05de31e6631b6fdbba2deb3dde7ed046c7106ffa",
+   "moduleName": "events",
+   "packageName": "api-utils",
+   "requirements": {
+    "./light-traits": {
+     "path": "api-utils/lib/light-traits.js"
+    },
+    "./traits": {
+     "path": "api-utils/lib/traits.js"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/file.js": {
+   "docsSHA256": "d5eda6de6b4632de04d0f95e4380f66b5878ae2bf7c4ea3aeda04ce2c283b381",
+   "jsSHA256": "d5acf1eb63ca398b5780512dc5cb265d89ce9dc9c0357571aa411722b5815fd3",
+   "moduleName": "file",
+   "packageName": "api-utils",
+   "requirements": {
+    "./byte-streams": {
+     "path": "api-utils/lib/byte-streams.js"
+    },
+    "./text-streams": {
+     "path": "api-utils/lib/text-streams.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/globals!.js": {
+   "docsSHA256": null,
+   "jsSHA256": "1453c26694be1ac1d9ad590ff640bcf217cbc07fa86b800221303ba9f527f61b",
+   "moduleName": "globals!",
+   "packageName": "api-utils",
+   "requirements": {
+    "./memory": {
+     "path": "api-utils/lib/memory.js"
+    },
+    "./plain-text-console": {
+     "path": "api-utils/lib/plain-text-console.js"
+    },
+    "@packaging": {
+     "path": "@packaging"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/light-traits.js": {
+   "docsSHA256": "7a0a34c90a43045d28d6089d8d5cdc854c8fcd4cb01bf5ca234f7bb64026d027",
+   "jsSHA256": "eb07416982e7ccfb3dee68efd256c0dd09a04d65f34cbdab90b88f0874af00c4",
+   "moduleName": "light-traits",
+   "packageName": "api-utils",
+   "requirements": {},
+   "sectionName": "lib"
+  },
+  "api-utils/lib/memory.js": {
+   "docsSHA256": "3550f59ba586f4809db1e04a6d98710aa4ca7350013afd09fd218045b7e4169a",
+   "jsSHA256": "2f925e73afd8aa0a36ac8d4196a9ab2dd6373807e420d7855d48f196e4694675",
+   "moduleName": "memory",
+   "packageName": "api-utils",
+   "requirements": {
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/plain-text-console.js": {
+   "docsSHA256": "a3015c290b88dfb4078d8ad178342d787d55e8945f2c6d4ea7b7761c0a443506",
+   "jsSHA256": "e6056d23fca6c898f64b1aa2b15b6bc72f7627d2dff18184b9bf72345cf9f90f",
+   "moduleName": "plain-text-console",
+   "packageName": "api-utils",
+   "requirements": {
+    "./traceback": {
+     "path": "api-utils/lib/traceback.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/process.js": {
+   "docsSHA256": null,
+   "jsSHA256": "acdb8079ff87b7706018e8941bed0a598e6cd57763de9a2ea61878a6217cbb2e",
+   "moduleName": "process",
+   "packageName": "api-utils",
+   "requirements": {
+    "./channel": {
+     "path": "api-utils/lib/channel.js"
+    },
+    "./timer": {
+     "path": "api-utils/lib/timer.js"
+    },
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "@packaging": {
+     "path": "@packaging"
+    },
+    "api-utils/window-utils": {
+     "path": "api-utils/lib/window-utils.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/self!.js": {
+   "docsSHA256": null,
+   "jsSHA256": "5b68436cb528eb817ef79e17a673d33ea947f024480993ee8cca1d959b03e515",
+   "moduleName": "self!",
+   "packageName": "api-utils",
+   "requirements": {
+    "@packaging": {
+     "path": "@packaging"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/system.js": {
+   "docsSHA256": null,
+   "jsSHA256": "7456537c16443d4a8bbe09c3a104fb2742adef5fe53958f525c3eaa56173c146",
+   "moduleName": "system",
+   "packageName": "api-utils",
+   "requirements": {
+    "./environment": {
+     "path": "api-utils/lib/environment.js"
+    },
+    "./file": {
+     "path": "api-utils/lib/file.js"
+    },
+    "@packaging": {
+     "path": "@packaging"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/text-streams.js": {
+   "docsSHA256": "6ff7a7cfb1cb4c6a7d436961c6bae2813202a9475ffa864ce5b598afb21e94a8",
+   "jsSHA256": "73d2de1a8e30c2ea49daa91f0db737dd94eae29a3e3299183dfc1d61985fae06",
+   "moduleName": "text-streams",
+   "packageName": "api-utils",
+   "requirements": {
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/timer.js": {
+   "docsSHA256": null,
+   "jsSHA256": "640d7ec477f013db82ab83eb4650ff6d8eecde7f2816bad18fc058456d820231",
+   "moduleName": "timer",
+   "packageName": "api-utils",
+   "requirements": {
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "./xpcom": {
+     "path": "api-utils/lib/xpcom.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/traceback.js": {
+   "docsSHA256": "1cb67ef04704ed75b389f3b2f36987b8781abc8bb4a05b25027849cf2fc227f3",
+   "jsSHA256": "001d7b5ae6590b925d9bb8ed443f443202996e6e63c140f7e9ffe8176b0bd994",
+   "moduleName": "traceback",
+   "packageName": "api-utils",
+   "requirements": {
+    "./url": {
+     "path": "api-utils/lib/url.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/traits.js": {
+   "docsSHA256": "e871ec67fc19a8c640370722d22fd36e1c56de98450c5be9c6b56560df795bbd",
+   "jsSHA256": "c69b88fda50e97cd3c99e31070cb78aad22042491bf1c66453cf330297b56808",
+   "moduleName": "traits",
+   "packageName": "api-utils",
+   "requirements": {
+    "./traits/core": {
+     "path": "api-utils/lib/traits/core.js"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/traits/core.js": {
+   "docsSHA256": null,
+   "jsSHA256": "457e12bb50203c9576f26c685ea6911ed783e646e803cbd935b002ca7be38985",
+   "moduleName": "traits/core",
+   "packageName": "api-utils",
+   "requirements": {},
+   "sectionName": "lib"
+  },
+  "api-utils/lib/unload.js": {
+   "docsSHA256": "6e355161b7c2c50809f754d97c6dd39d36029f907cef7415c89902b9f901c071",
+   "jsSHA256": "d5f698c31088fc56efa27b829af95b5e389fd0f3f0c781b102191f55b74244ab",
+   "moduleName": "unload",
+   "packageName": "api-utils",
+   "requirements": {},
+   "sectionName": "lib"
+  },
+  "api-utils/lib/url.js": {
+   "docsSHA256": "487c111b88beb853c2379741eb7dbc800eaf6d69809d374f856319edbcbb84b9",
+   "jsSHA256": "730d046aec76dbac526c4193b369ef7497c4a7d1304e11ab022ed606ad79ac4a",
+   "moduleName": "url",
+   "packageName": "api-utils",
+   "requirements": {
+    "./api-utils": {
+     "path": "api-utils/lib/api-utils.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/window-utils.js": {
+   "docsSHA256": "edeef4d300dbaedab2d81200327ea270dfe18a23a6332de8338e1df4829b14aa",
+   "jsSHA256": "17d8ac1c9ef026be6b6bdc57a4498d0325e43a9f8b20d08fd9667088a9d6c236",
+   "moduleName": "window-utils",
+   "packageName": "api-utils",
+   "requirements": {
+    "./errors": {
+     "path": "api-utils/lib/errors.js"
+    },
+    "./events": {
+     "path": "api-utils/lib/events.js"
+    },
+    "./traits": {
+     "path": "api-utils/lib/traits.js"
+    },
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "api-utils/lib/xpcom.js": {
+   "docsSHA256": "e78d0a5975cd8ccb6632faaa398606e90c5a090123fa5820d1b7988012bf5961",
+   "jsSHA256": "e894bd1adcd77f9ad3f71b3f1ecd631d0d36616e12357fcc4d4c462aa8f129e8",
+   "moduleName": "xpcom",
+   "packageName": "api-utils",
+   "requirements": {
+    "./unload": {
+     "path": "api-utils/lib/unload.js"
+    },
+    "chrome": {
+     "path": "chrome"
+    }
+   },
+   "sectionName": "lib"
+  },
+  "vertical_tabs/lib/main.js": {
+   "docsSHA256": "3a655b7acfe54aadb7dce1684152ee679a151b364603ac60d6e04b5f4cbc793a",
+   "jsSHA256": "5f3e6dd4cc046a76e39115c9f59a2a3b977dd820bb34c17fadcde7fa92df1c6f",
+   "moduleName": "main",
+   "packageName": "vertical_tabs",
+   "requirements": {
+    "chrome": {
+     "path": "chrome"
+    },
+    "self": {
+     "dataURIPrefix": "vertical_tabs/data/",
+     "mapName": "vertical_tabs-data",
+     "mapSHA256": "041d05be959526a17727e5a197ed6b8e22a66904d9689a48b0108b0d2eacf8df",
+     "path": "self"
+    },
+    "window-utils": {
+     "path": "api-utils/lib/window-utils.js"
+    }
+   },
+   "sectionName": "lib"
+  }
+ },
+ "metadata": {
+  "addon-kit": {
+   "author": "Atul Varma (http://toolness.com/) <atul@mozilla.com>",
+   "contributors": [
+    "Myk Melez (http://melez.com/) <myk@mozilla.org>",
+    "Daniel Aquino <mr.danielaquino@gmail.com>"
+   ],
+   "description": "Add-on development made easy.",
+   "keywords": [
+    "javascript",
+    "engine",
+    "platform",
+    "xulrunner"
+   ],
+   "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
+   "name": "addon-kit"
+  },
+  "api-utils": {
+   "author": "Atul Varma (http://toolness.com/) <atul@mozilla.com>",
+   "contributors": [
+    "Myk Melez (http://melez.com/) <myk@mozilla.org>",
+    "Daniel Aquino <mr.danielaquino@gmail.com>"
+   ],
+   "description": "Foundational infrastructure and utilities.",
+   "keywords": [
+    "javascript",
+    "engine",
+    "platform",
+    "xulrunner",
+    "jetpack-low-level"
+   ],
+   "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
+   "name": "api-utils"
+  },
+  "vertical_tabs": {
+   "description": "a basic add-on",
+   "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
+   "main": "main",
+   "name": "vertical_tabs",
+   "version": "0.1"
+  }
+ },
+ "name": "vertical_tabs",
+ "sdkVersion": "1.4.3",
+ "staticArgs": {},
+ "unique_prefix": "jid1-eqhhqs0y1jmbiq-at-jetpack",
+ "verbose": false
+}
