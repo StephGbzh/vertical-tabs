@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
     <em:id>jid1-1lRhXsjnBljGWw@jetpack</em:id>
-    <em:version>0.2</em:version>
+    <em:version>0.3</em:version>
     <em:type>2</em:type>
     <em:bootstrap>true</em:bootstrap>
     <em:unpack>true</em:unpack>
@@ -18,7 +18,7 @@
     <!-- Front End MetaData -->
     <em:name>Vertical Tabs</em:name>
     <em:description>Put the tabs on the right of the screen</em:description>
-    <em:creator></em:creator>
+    <em:creator>StefGBzh</em:creator>
     <em:iconURL/>
     <em:icon64URL/>
     

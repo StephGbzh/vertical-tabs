@@ -6,6 +6,17 @@ It is __NOT__ this add-on: [Vertical Tabs](https://addons.mozilla.org/en-Us/fire
 I developed this because [Widefox](https://sites.google.com/site/jrweare/browser2.0) was abandoned around Firefox 3.  
 [Tab Mix Plus](https://addons.mozilla.org/en-US/firefox/addon/tab-mix-plus/) developers never added this functionality either, see http://tmp.garyr.net/forum/viewtopic.php?t=17110
 
+###version 0.3
+
+- lib/chrome-mod.js
+- lib/main.js
+- data/main.css
+- data/browser.css
+- data/browser-mod.js
+
+tab.png removed
+tab drop indicator modified: more readable
+
 ###version 0.2
 
 - lib/chrome-mod.js

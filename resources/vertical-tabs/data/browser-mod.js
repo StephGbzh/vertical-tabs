@@ -6,6 +6,16 @@ tabBrowser.mTabContainer.mTabstrip.setAttribute("orient", "vertical");
 
 let tabs = document.getElementById('tabbrowser-tabs');
 
+
+// Change tabs orientation
+tabsToolbar.setAttribute("orient", "vertical");
+let orientBox = document.getAnonymousElementByAttribute(tabs, 'anonid', 'arrowscrollbox');
+if (orientBox)
+  orientBox.setAttribute("orient","vertical");
+else
+  console.error("unable to found orientbox");
+
+
 // Overload XBL methods in order to make Drag'n Drop work:
 tabs._getDragTargetTab = function _getDragTargetTabTTOverload (event) {
   let tab = event.target.localName == "tab" ? event.target : null;
@@ -153,16 +163,21 @@ function dragOverEvent(event) {
           newMargin *= -1;
         newMargin -= this.clientHeight;
 
-        ind.style.MozTransform = "translate(" + this.clientWidth + "px, " + Math.round(newMargin) + "px) rotate(90deg)";
+        //ind.style.MozTransform = "translate(" + this.clientWidth + "px, " + Math.round(newMargin) + "px) rotate(90deg)";
+        
+        ind.style.MozTransform = "translate(" + this.clientWidth + "px, " + Math.round(newMargin) + "px)";
+        
         ind.style.MozMarginStart = (- ind.clientWidth) + "px";
+        //ind.style.MozMarginStart = "50px";
 
 // All these properties applies the max value to ALL paddings ! (right, left, top, bottom)
         //ind.style.paddingTop = "10px";
+        //ind.style.paddingRight = "100px";
         //ind.style.padding = "1px 1px 1px 250px";
         //ind.style.paddingBottom = "10px";
         //ind.style.paddingLeft = "750px";
 
-        console.log(ind.style.direction);
+        //console.log(ind.style.cssText);
 }
 
 

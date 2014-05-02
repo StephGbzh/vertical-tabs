@@ -1,7 +1,7 @@
 {
  "allTestModules": [],
  "bootstrap": {
-  "classID": "{cd505f93-629f-4299-b100-c236f05b4287}",
+  "classID": "{4a708aa6-616f-4ed0-98a7-63ed8dac6454}",
   "contractID": "@mozilla.org/harness-service;1?id=jid1-1lRhXsjnBljGWw@jetpack"
  },
  "enable_e10s": false,
@@ -874,7 +874,7 @@
    "sectionName": "lib"
   },
   "vertical-tabs/lib/main.js": {
-   "docsSHA256": "1fa5f9f64128c57a850c9ad9e4ba03f57cbc29d916a51a2dd22da11a57d4d765",
+   "docsSHA256": "30006603ced099f95d517174bfc7f81d8e70c93643553eb219dfd6c09c84fbb9",
    "jsSHA256": "e9c427e13f01ad0240b4a64440d77c4acf26169efc6334cbe591de08baa31bd3",
    "moduleName": "main",
    "packageName": "vertical-tabs",
@@ -888,7 +888,7 @@
     "self": {
      "dataURIPrefix": "vertical-tabs/data/",
      "mapName": "vertical-tabs-data",
-     "mapSHA256": "d7e2d750b0112a6a23232a8d095a4a5a75b9e93f74eb01b5d44e9f8aa85795b0",
+     "mapSHA256": "40b9970d5f105c75db93d8763f7f98f4b33ab3edd9833a18d390281a43eb7693",
      "path": "self"
     }
    },
@@ -930,11 +930,12 @@
    "name": "api-utils"
   },
   "vertical-tabs": {
+   "author": "StefGBzh",
    "description": "Put the tabs on the right of the screen",
    "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
    "main": "main",
    "name": "vertical-tabs",
-   "version": "0.2"
+   "version": "0.3"
   }
  },
  "name": "vertical-tabs",
