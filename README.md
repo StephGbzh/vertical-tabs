@@ -14,7 +14,7 @@ I developed this because [Widefox](https://sites.google.com/site/jrweare/browser
 - data/browser.css
 - data/browser-mod.js
 
-- adapted to firefox 17 which added tabs animation during drag and drop
+Adapted to firefox 17 which added tabs animation during drag and drop
 
 ###version 0.3
 
