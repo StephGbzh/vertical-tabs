@@ -14,7 +14,7 @@ I developed this because [Widefox](https://sites.google.com/site/jrweare/browser
 - data/browser.css
 - data/browser-mod.js
 
-tab.png removed
+tab.png removed  
 tab drop indicator modified: more readable
 
 ###version 0.2
@@ -26,7 +26,7 @@ tab drop indicator modified: more readable
 - data/browser-mod.js
 - data/tab.png
 
-Based on the treetabs version of ochameau
+Based on the treetabs version of ochameau  
 https://github.com/mozilla/addon-sdk/wiki/Community-developed-modules
 - drag and drop added
 
