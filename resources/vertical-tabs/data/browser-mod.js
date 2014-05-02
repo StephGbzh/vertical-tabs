@@ -68,8 +68,9 @@ tabs._setEffectAllowedForDataTransfer = function _setEffectAllowedForDataTransfe
         return dt.effectAllowed = "none";
       }
 
-      return dt.effectAllowed = "copyMove";
+      return dt.effectAllowed = event.ctrlKey ? "copy" : "move";
     }
+
   }
 
   if (browserDragAndDrop.canDropLink(event)) {
@@ -85,7 +86,6 @@ function dragOverEvent(event) {
         var ind = this._tabDropIndicator;
         if (effects == "" || effects == "none") {
           ind.collapsed = true;
-          this._continueScroll(event);
           return;
         }
         event.preventDefault();
@@ -125,8 +125,11 @@ function dragOverEvent(event) {
         }
 
         var newIndex = this._getDropIndex(event);
+        var dt = event.dataTransfer;
+        draggedTab = dt.mozGetDataAt(TAB_DROP_TYPE, 0);
+        draggedTab._dragData.animDropIndex = newIndex;
         var scrollRect = tabStrip.scrollClientRect;
-        var rect = this.getBoundingClientRect();
+        var rect = tabStrip.getBoundingClientRect();
         var minMargin = scrollRect.top - rect.top;
         var maxMargin = Math.min(minMargin + scrollRect.height,
                                  scrollRect.bottom);

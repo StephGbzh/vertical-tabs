@@ -1,63 +1,28 @@
 /* vim:set ts=2 sw=2 sts=2 et: */
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is Jetpack.
- *
- * The Initial Developer of the Original Code is
- * the Mozilla Foundation.
- * Portions created by the Initial Developer are Copyright (C) 2011
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *   Irakli Gozalishvili <gozala@mozilla.com> (Original Author)
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
 
-function getTabContainer(tabBrowser) {
-  return tabBrowser.tabContainer;
+module.metadata = {
+  "stability": "unstable"
+};
+
+const { Ci } = require("chrome");
+
+function getTabBrowser(window) {
+  return window.gBrowser;
+}
+exports.getTabBrowser = getTabBrowser;
+
+function getTabContainer(window) {
+  return getTabBrowser(window).tabContainer;
 }
 exports.getTabContainer = getTabContainer;
 
-function getTabBrowsers(window) {
-  return Array.slice(window.document.getElementsByTagName("tabbrowser"));
-}
-exports.getTabBrowsers = getTabBrowsers;
-
-function getTabContainers(window) {
-  return getTabBrowsers(window).map(getTabContainer);
-}
-exports.getTabContainers = getTabContainers;
-
 function getTabs(window) {
-  return getTabContainers(window).reduce(function (tabs, container) {
-    tabs.push.apply(tabs, container.children);
-    return tabs;
-  }, []);
+  return Array.slice(getTabContainer(window).children);
 }
 exports.getTabs = getTabs;
 
@@ -76,12 +41,77 @@ function openTab(window, url) {
 }
 exports.openTab = openTab;
 
+function isTabOpen(tab) {
+  return !!tab.linkedBrowser;
+}
+exports.isTabOpen = isTabOpen;
+
 function closeTab(tab) {
-  return getOwnerWindow(tab).gBrowser.removeTab(tab);
+  return getTabBrowserForTab(tab).removeTab(tab);
 }
 exports.closeTab = closeTab;
 
 function activateTab(tab) {
-  getOwnerWindow(tab).gBrowser.selectedTab = tab;
+  getTabBrowserForTab(tab).selectedTab = tab;
 }
 exports.activateTab = activateTab;
+
+function getURI(tab) {
+  return tab.linkedBrowser.currentURI.spec;
+}
+exports.getURI = getURI;
+
+function getTabBrowserForTab(tab) {
+  return getOwnerWindow(tab).gBrowser;
+}
+exports.getTabBrowserForTab = getTabBrowserForTab;
+
+function getBrowserForTab(tab) {
+  return tab.linkedBrowser;
+}
+exports.getBrowserForTab = getBrowserForTab;
+
+function getTabTitle(tab) {
+  return getBrowserForTab(tab).contentDocument.title || tab.label;
+}
+exports.getTabTitle = getTabTitle;
+
+function getTabContentWindow(tab) {
+  return getBrowserForTab(tab).contentWindow;
+}
+exports.getTabContentWindow = getTabContentWindow;
+
+function getTabForContentWindow(window) {
+  // Retrieve the topmost frame container. It can be either <xul:browser>,
+  // <xul:iframe/> or <html:iframe/>. But in our case, it should be xul:browser.
+  let browser = window.QueryInterface(Ci.nsIInterfaceRequestor)
+                   .getInterface(Ci.nsIWebNavigation)
+                   .QueryInterface(Ci.nsIDocShell)
+                   .chromeEventHandler;
+  // Is null for toplevel documents
+  if (!browser)
+    return false;
+  // Retrieve the owner window, should be browser.xul one
+  let chromeWindow = browser.ownerDocument.defaultView;
+
+  // Ensure that it is top-level browser window.
+  // We need extra checks because of Mac hidden window that has a broken
+  // `gBrowser` global attribute.
+  if ('gBrowser' in chromeWindow && chromeWindow.gBrowser &&
+      'browsers' in chromeWindow.gBrowser) {
+    // Looks like we are on Firefox Desktop
+    // Then search for the position in tabbrowser in order to get the tab object
+    let browsers = chromeWindow.gBrowser.browsers;
+    let i = browsers.indexOf(browser);
+    if (i !== -1)
+      return chromeWindow.gBrowser.tabs[i];
+    return null;
+  }
+  else if ('BrowserApp' in chromeWindow) {
+    // Looks like we are on Firefox Mobile
+    return chromeWindow.BrowserApp.getTabForWindow(window)
+  }
+
+  return null;
+}
+exports.getTabForContentWindow = getTabForContentWindow;

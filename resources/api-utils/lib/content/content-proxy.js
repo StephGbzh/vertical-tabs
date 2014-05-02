@@ -1,6 +1,16 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 "use strict";
 
-let Ci = Components.interfaces;
+/* Trick the linker in order to avoid error on `Components.interfaces` usage.
+   We are tricking the linker with `require('./content-proxy.js')` from
+   worjer.js in order to ensure shipping this file! But then the linker think
+   that this file is going to be used as a CommonJS module where we forbid usage
+   of `Components`.
+*/
+let Ci = Components['interfaces'];
 
 /**
  * Access key that allows privileged code to unwrap proxy wrappers through 
@@ -253,6 +263,17 @@ function wrap(value, obj, name, debug) {
     if (!Object.isExtensible(value) &&
         typedArraysCtor.indexOf(value.constructor) !== -1)
       return value;
+
+    // Bug 715755: do not proxify COW wrappers
+    // These wrappers throw an exception when trying to access
+    // any attribute that is not in a white list
+    try {
+      ("nonExistantAttribute" in value);
+    }
+    catch(e) {
+      if (e.message.indexOf("Permission denied to access property") !== -1)
+        return value;
+    }
 
     // We may have a XrayWrapper proxy.
     // For example:
@@ -524,7 +545,7 @@ const xRayWrappersMissFixes = [
   // Trap access to form["node name"]
   // http://mxr.mozilla.org/mozilla-central/source/dom/base/nsDOMClassInfo.cpp#9477
   function (obj, name) {
-    if (typeof obj == "object" && obj.tagName == "FORM") {
+    if (typeof obj == "object" && "tagName" in obj && obj.tagName == "FORM") {
       let match = obj.wrappedJSObject[name];
       let nodes = obj.ownerDocument.getElementsByName(name);
       for (let i = 0, l = nodes.length; i < l; i++) {
@@ -642,6 +663,33 @@ const xRayWrappersMethodsFixes = {
     };
 
     return getProxyForFunction(f, NativeFunctionWrapper(f));
+  },
+
+  // Bug 769006: nsIDOMMutationObserver.observe fails with proxy as options
+  // attributes
+  observe: function observe(obj) {
+    // Ensure that we are on a DOMMutation object
+    try {
+      // nsIDOMMutationObserver starts with FF14
+      if ("nsIDOMMutationObserver" in Ci)
+        obj.QueryInterface(Ci.nsIDOMMutationObserver);
+      else
+        return null;
+    }
+    catch(e) {
+      return null;
+    }
+    return function nsIDOMMutationObserverObserveFix(target, options) {
+      // Gets native/unwrapped this
+      let self = this && typeof this.valueOf == "function" ?
+                 this.valueOf(UNWRAP_ACCESS_KEY) : this;
+      // Unwrap the xraywrapper target out of JS proxy
+      let targetXray = unwrap(target);
+      // But do not wrap `options` through ContentScriptObjectWrapper
+      let result = wrap(self.observe(targetXray, options));
+      // Finally wrap result into JS proxies
+      return wrap(result);
+    };
   }
 };
 
@@ -693,17 +741,15 @@ function handlerMaker(obj) {
       // Overload toString in order to avoid returning "[XrayWrapper [object HTMLElement]]"
       // or "[object Function]" for function's Proxy
       if (name == "toString") {
-        if ("wrappedJSObject" in obj) {
-          // Bug 714778: we should not pass obj.wrappedJSObject.toString
-          // in order to avoid sharing its proxy over contents scripts:
-          return wrap(function () {
-            return obj.wrappedJSObject.toString.call(
-                     this.valueOf(UNWRAP_ACCESS_KEY), arguments);
-          }, obj, name);
-        }
-        else {
-          return wrap(obj.toString, obj, name);
-        }
+        // Bug 714778: we should not pass obj.wrappedJSObject.toString
+        // in order to avoid sharing its proxy between two contents scripts.
+        // (not that `unwrappedObj` can be equal to `obj` when `obj` isn't
+        // an xraywrapper)
+        let unwrappedObj = XPCNativeWrapper.unwrap(obj);
+        return wrap(function () {
+          return unwrappedObj.toString.call(
+                   this.valueOf(UNWRAP_ACCESS_KEY), arguments);
+        }, obj, name);
       }
 
       // Offer a way to retrieve XrayWrapper from a proxified node through `valueOf`
