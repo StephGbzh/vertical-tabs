@@ -8,7 +8,7 @@ I developed this because [Widefox](https://sites.google.com/site/jrweare/browser
 
 ###version 0.8
 
-Modified to work with firefox 29
+Modified to work with firefox 29  
 Repackaged with addon sdk 1.16
 
 ###version 0.7
