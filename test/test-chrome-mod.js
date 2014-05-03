@@ -39,11 +39,7 @@ exports.testChromeMod = function(test) {
       worker.on("message", function (data) {
         test.assertEqual(data, "bye", "get message from content script");
         // Search for this modified window
-        /*for(let win in utils.windows()) {
-            console.log("WINDOW COUCOU1 "+ win)
-        }*/
         for(let win in windowIterator()) {
-            console.log("WINDOW COUCOU "+ win)
           if (win.document.documentElement.getAttribute("chrome-mod-ok") == "true") {
             test.done();
             return;
