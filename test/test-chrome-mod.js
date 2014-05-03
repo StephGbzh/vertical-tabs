@@ -5,7 +5,7 @@ const { ChromeMod } = require("chrome-mod");
 
 const { windows, isDocumentLoaded } = require('sdk/window/utils');
 const { isGlobalPBSupported } = require('sdk/private-browsing/utils');
-const { isPrivateBrowsingSupported } = require('self');
+const { isPrivateBrowsingSupported } = require('sdk/self');
 
 /* Tests for the ChromeMod APIs */
 

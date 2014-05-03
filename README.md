@@ -3,13 +3,14 @@
 Vertical tabs is a Firefox add-on aimed at putting the tabs in a sidebar placed on the right of the browser.  
 It is __NOT__ this add-on: [Vertical Tabs](https://addons.mozilla.org/en-Us/firefox/addon/vertical-tabs/)
 
-I developed this because [Widefox](https://sites.google.com/site/jrweare/browser2.0) was abandoned around Firefox 3.  
+I developed this because [Widefox](https://sites.google.com/site/jrweare/browser2.0) has been abandoned around Firefox 3.  
 [Tab Mix Plus](https://addons.mozilla.org/en-US/firefox/addon/tab-mix-plus/) developers never added this functionality either, see http://tmp.garyr.net/forum/viewtopic.php?t=17110
 
 ###version 0.8
 
 Modified to work with firefox 29  
-Repackaged with addon sdk 1.16
+Replaced deprecated API (traits and window-utils)
+Repackaged with addon sdk 1.16  
 
 ###version 0.7
 
