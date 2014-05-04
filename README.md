@@ -4,7 +4,11 @@ Vertical tabs is a Firefox add-on aimed at putting the tabs in a sidebar placed 
 It is __NOT__ this add-on: [Vertical Tabs](https://addons.mozilla.org/en-Us/firefox/addon/vertical-tabs/)
 
 I developed this because [Widefox](https://sites.google.com/site/jrweare/browser2.0) has been abandoned around Firefox 3.  
-[Tab Mix Plus](https://addons.mozilla.org/en-US/firefox/addon/tab-mix-plus/) developers never added this functionality either, see http://tmp.garyr.net/forum/viewtopic.php?t=17110
+[Tab Mix Plus](https://addons.mozilla.org/en-US/firefox/addon/tab-mix-plus/) developers never added this functionality either, see [Tab Mix Plus Forum](http://tmp.garyr.net/forum/viewtopic.php?t=17110).
+
+It is leight-weight and can be complemented with other addons:
+- [Classic Theme Restorer](https://addons.mozilla.org/en-US/firefox/addon/classicthemerestorer/) allows "Squared tabs" much more covenient for a vertical tab bar.
+- [Tab Wheel Scroll](https://addons.mozilla.org/en-US/firefox/addon/tab-wheel-scroll/) allows... well, just take a guess :-)
 
 ###version 0.8
 
