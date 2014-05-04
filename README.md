@@ -13,7 +13,7 @@ It is light-weight and can be complemented with other addons:
 ###version 0.8
 
 Modified to work with firefox 29  
-Replaced deprecated API (traits and window-utils)
+Replaced deprecated API (traits and window-utils)  
 Repackaged with addon sdk 1.16  
 
 ###version 0.7
