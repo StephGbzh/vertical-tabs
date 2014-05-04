@@ -12,6 +12,11 @@
     min-width: 250px !important;
 }
 
+.tabbrowser-tabs
+{
+    max-width: 250px !important;
+}
+
 #new-tab-button,
 .tabs-newtab-button
 {
