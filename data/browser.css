@@ -35,6 +35,16 @@
   -moz-box-flex:0 !important;
 }
 
+#TabsToolbar {
+    width: 250px;
+}
+.tabbrowser-tabs
+    {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+}
+
 /* Fullscreen : Hide tab bar */
 #main-window[sizemode="fullscreen"] #TabsToolbar {
     width: 1px !important;

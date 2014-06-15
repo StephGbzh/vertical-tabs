@@ -10,6 +10,10 @@ It is light-weight and can be complemented with other addons:
 - [Classic Theme Restorer](https://addons.mozilla.org/en-US/firefox/addon/classicthemerestorer/) allows "Squared tabs" much more covenient for a vertical tab bar.
 - [Tab Wheel Scroll](https://addons.mozilla.org/en-US/firefox/addon/tab-wheel-scroll/) allows... well, just take a guess :-)
 
+###version 0.9
+
+Fixed css to work correctly on Windows  
+
 ###version 0.8
 
 Modified to work with firefox 29  
